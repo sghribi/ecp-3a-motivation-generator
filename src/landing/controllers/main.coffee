@@ -28,7 +28,7 @@ angular.module '%module%.landing'
   ]
 
   # Key
-  $scope.$watch 'key', (key) ->
+  $scope.$watch 'key', ->
     # @TODO : inject service to check key
     $scope.unlocked = true
 
