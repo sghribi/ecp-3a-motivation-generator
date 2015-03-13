@@ -15,7 +15,9 @@
 .container
   .row
     form(name="form")
-    .col-sm-3
+    .col-sm-4
+      h2 T ki lol ?
+
       .form-group
         label(for="firstName") Prénom
         input.form-control#firstName(type="text", placeholder="Prénom", required="required", ng-model="firstName")
@@ -24,29 +26,63 @@
         input.form-control#lastName(type="text", placeholder="Nom", required="required", ng-model="lastName")
       .form-group
         label(for="originCursus") Cursus avant l'entrée en 3A
-        .radio#originCursus(ng-repeat="(originCursus, originCursusLabel) in originCursuses")
-          label(for='{{ originCursus }}')
-            input(type='radio', name='originCursus', id='{{ originCursus }}', value='{{ originCursus }}', required='required', ng-model="originCursus")
-            | {{ originCursusLabel }}
+        select.form-control#option2(ng-model="originCursus", ng-options="originCursus as originCursus for originCursus in originCursuses", required="required")
+
+    .col-sm-4
+      h2 Tu veux faire koi lol ?
+
+      h3 Options
+      .form-group
+        label(for="option1") Choix 1
+        select.form-control#option1(ng-model="option1", ng-options="option as option for option in options", required="required")
+      .form-group
+        label(for="option2") Choix 2
+        select.form-control#option2(ng-model="option2", ng-options="option as option for option in options", required="required")
+      .form-group
+        label(for="option3") Choix 3
+        select.form-control#option3(ng-model="option3", ng-options="option as option for option in options", required="required")
+
+      h3 Filières
+      .form-group
+        label(for="filiere1") Choix 1
+        select.form-control#filiere1(ng-model="filiere1", ng-options="filiere as filiere for filiere in filieres", required="required")
+      .form-group
+        label(for="filiere2") Choix 2
+        select.form-control#filiere2(ng-model="filiere2", ng-options="filiere as filiere for filiere in filieres", required="required")
+      .form-group
+        label(for="filiere3") Choix 3
+        select.form-control#filiere3(ng-model="filiere3", ng-options="filiere as filiere for filiere in filieres", required="required")
 
 
+    .col-sm-4
+      h2 Ta lettre lol.
 
+      .form-group
+        label(for="place") Lieu sur la lettre
+        input.form-control#place(type="text", placeholder="Lieu", required="required", ng-model="place")
+      .form-group
+        label(for='date') Date sur la lettre
+        .input-group
+          input#date.form-control(
+            type='text'
+            datepicker-popup='DD/MM/YYYY'
+            ng-model='date'
+            is-open='opened'
+            ng-required='true'
+          )
+          span.input-group-btn
+            button.btn.btn-default(type='button', ng-click='openDate($event)')
+              i.glyphicon.glyphicon-calendar
 
-
-    .input-group
-      input.form-control(
-        type='text'
-        datepicker-popup='DD/MM/YYYY'
-        ng-model='date'
-        is-open='opened'
-        ng-required='true'
-      )
-      span.input-group-btn
-        button.btn.btn-default(type='button', ng-click='openDate($event)')
-          i.glyphicon.glyphicon-calendar
-
-    pre
-      | Prénom : {{ firstName }}
-      | Name : {{ lastName }}
-      | Cursus : {{ originCursus }}
-      | Date : {{ date|date:"ll" }}
+  pre
+    | Prénom : {{ firstName }}
+    | Name : {{ lastName }}
+    | Cursus : {{ originCursus }}
+    | Option1 : {{ option1 }}
+    | Option2 : {{ option2 }}
+    | Option3 : {{ option3 }}
+    | Filière1 : {{ filiere1 }}
+    | Filière2 : {{ filiere2 }}
+    | Filière3 : {{ filiere3 }}
+    | Date : {{ date|date:"ll" }}
+    | Lieu : {{ place }}

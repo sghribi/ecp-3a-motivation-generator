@@ -3,12 +3,29 @@ angular.module '%module%.landing'
 
   # Init
   $scope.date = new Date()
-  $scope.originCursuses = {
-    cesure:     'Césure'
-    s8_academy: 'S8 Académique'
-    s8_labo:    'S8 Labo'
-    s8_company: 'S8 Entreprise'
-  }
+  $scope.originCursuses = [
+    'Césure',
+    'S8 Académique',
+    'S8 Labo',
+    'S8 Entreprise'
+  ]
+  $scope.options = [
+    'Aménagement et Construction durables'
+    'Énergie'
+    'Génie Industriel'
+    'Mathématiques appliquées'
+    'Mécanique, Aéronautique, Espace'
+    'Physique et Applications'
+    'Ingénierie des Systèmes Informatiques et Avancés'
+  ]
+  $scope.filieres = [
+    'Centrale Entrepreneurs'
+    'Conception & Industrialisation de systèmes innovants'
+    'Management Opérationnel'
+    'Management de Projets à l\'international'
+    'Métiers de la Recherche'
+    'Stratégie & Finance'
+  ]
 
   # Key
   $scope.$watch 'key', (key) ->
