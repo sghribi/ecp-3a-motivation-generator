@@ -4,3 +4,4 @@ angular.module '%module%.landing'
   .state 'landing',
     url: '/'
     templateUrl: 'landing/views/view.html'
+    controller: 'MainCtrl'

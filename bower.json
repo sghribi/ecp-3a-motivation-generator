@@ -2,9 +2,12 @@
   "name": "boilerplate",
   "version": "0.0.1",
   "dependencies": {
+    "font-awesome": "4.3.x",
     "angular": "*",
+    "angular-bootstrap": "*",
     "angular-translate": "*",
     "angular-ui-router": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "moment": "2.8.x"
   }
 }

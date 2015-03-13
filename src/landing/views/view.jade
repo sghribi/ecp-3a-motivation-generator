@@ -1,12 +1,27 @@
-span Atom Angular Boilerplate
+.jumbotron
+  .container
+    //h1 Générateur de lettres de motivation
+    p Générateur de lettres de motivation pour l'inscription aux options/filière de Centrale Paris
+    .row
+      .input-group
+        label(for="descryptKey") Les templates de lettres sont chiffrées
+        .input-group
+          .input-group-addon
+            i.glyphicon.glyphicon-lock
+          input.input-lg.form-control(type="text", placeholder="Clé de déchiffrement")
 
-h1(translate="HOME_TITLE")
-p(translate="HOME_TEXT")
+.container
+  p.input-group
+    input.form-control(
+      type='text'
+      datepicker-popup='dd/MM/yyyy'
+      ng-model='date'
+      is-open='opened'
+      ng-required='true'
+      )
+    span.input-group-btn
+      button.btn.btn-default(type='button', ng-click='openDate($event)')
+        i.glyphicon.glyphicon-calendar
 
-a(href="https://github.com/atom-angular/boilerplate")
-  | Check the code on&nbsp;
-  i.fa.fa-github
-  |   GitHub
-
-a(href="https://github.com/atom-angular/styleguide")
-  | Read the styleguide
+  pre
+    | {{ date }}

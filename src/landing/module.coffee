@@ -11,4 +11,5 @@ angular.module '%module%.landing', [
   'ng'
   'ui.router'
   'pascalprecht.translate'
+  'ui.bootstrap'
 ]
