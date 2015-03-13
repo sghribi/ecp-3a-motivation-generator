@@ -2,26 +2,51 @@
   .container
     //h1 Générateur de lettres de motivation
     p Générateur de lettres de motivation pour l'inscription aux options/filière de Centrale Paris
+
     .row
-      .input-group
-        label(for="descryptKey") Les templates de lettres sont chiffrées
+      form.form-horizontal(name="key")
         .input-group
-          .input-group-addon
-            i.glyphicon.glyphicon-lock
-          input.input-lg.form-control(type="text", placeholder="Clé de déchiffrement")
+          label(for="descryptKey") Les templates de lettres sont chiffrées
+          .input-group
+            .input-group-addon
+              i.glyphicon.glyphicon-lock
+            input.input-lg.form-control#decryptKey(type="text", placeholder="Clé de déchiffrage", ng-model="key")
 
 .container
-  p.input-group
-    input.form-control(
-      type='text'
-      datepicker-popup='dd/MM/yyyy'
-      ng-model='date'
-      is-open='opened'
-      ng-required='true'
-      )
-    span.input-group-btn
-      button.btn.btn-default(type='button', ng-click='openDate($event)')
-        i.glyphicon.glyphicon-calendar
+  .row
+    form(name="form")
+    .col-sm-3
+      .form-group
+        label(for="firstName") Prénom
+        input.form-control#firstName(type="text", placeholder="Prénom", required="required", ng-model="firstName")
+      .form-group
+        label(for="lastName") Nom de famille
+        input.form-control#lastName(type="text", placeholder="Nom", required="required", ng-model="lastName")
+      .form-group
+        label(for="originCursus") Cursus avant l'entrée en 3A
+        .radio#originCursus(ng-repeat="(originCursus, originCursusLabel) in originCursuses")
+          label(for='{{ originCursus }}')
+            input(type='radio', name='originCursus', id='{{ originCursus }}', value='{{ originCursus }}', required='required', ng-model="originCursus")
+            | {{ originCursusLabel }}
 
-  pre
-    | {{ date }}
+
+
+
+
+    .input-group
+      input.form-control(
+        type='text'
+        datepicker-popup='DD/MM/YYYY'
+        ng-model='date'
+        is-open='opened'
+        ng-required='true'
+      )
+      span.input-group-btn
+        button.btn.btn-default(type='button', ng-click='openDate($event)')
+          i.glyphicon.glyphicon-calendar
+
+    pre
+      | Prénom : {{ firstName }}
+      | Name : {{ lastName }}
+      | Cursus : {{ originCursus }}
+      | Date : {{ date|date:"ll" }}
