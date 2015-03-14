@@ -1,0 +1,44 @@
+.container
+
+  .jumbotron
+    h3   Générateur de lettres de motivation pour l'inscription aux options/filière de Centrale Paris
+
+  .row
+    .alert.alert-danger(ng-show="error")
+      | {{ error }}
+
+    form.spinner.col-sm-4.col-sm-offset-4(name="form", ng-submit="login()")
+      .list-group
+        .list-group-item
+          .form-group
+            label(for="username") Login
+            input#email.form-control(
+              type="text"
+              name="username"
+              placeholder="Login"
+              ng-model="formData.username"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+              autofocus
+            )
+          .form-group
+            label(for="password") Mot de passe
+            input#password.form-control(
+              type="password"
+              placeholder="Mot de passe"
+              ng-model="formData.password"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+            )
+
+        .list-group-item.text-center
+          button.btn.btn-primary.btn-lg.pull-center(
+            type="submit"
+            ng-disabled="!form.$valid || disabled"
+          )
+            i.glyphicon.glyphicon-user
+            |  Se connecter

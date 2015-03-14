@@ -3,7 +3,6 @@ angular.module '%module%.common'
   $http
   $translate
   $q
-  Users
   storage
   BASE_API_URL
 ) ->
