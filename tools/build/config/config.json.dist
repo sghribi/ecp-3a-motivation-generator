@@ -1,0 +1,5 @@
+{
+    "BASE_API_URL": "http://api.ghribi.net/",
+    "OAUTH_CLIENT_ID": "COPY_HERE_THE_PUBLIC_ID",
+    "OAUTH_CLIENT_SECRET": "COPY_HERE_THE_SECRET"
+}

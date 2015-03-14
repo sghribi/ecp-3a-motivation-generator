@@ -11,4 +11,5 @@ angular.module '%module%.common', [
   'ng'
   'ui.router'
   'pascalprecht.translate'
+  'config'
 ]

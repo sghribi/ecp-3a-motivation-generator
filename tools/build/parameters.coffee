@@ -9,6 +9,7 @@ srcPath = 'src'
 assetsPlaceholder = '%assets%'
 assetsFolder = 'assets'
 assetsPath = "#{srcPath}/#{assetsFolder}"
+configFilePath = 'tools/build/config/config.json'
 
 wwwPath = 'www'
 scriptsPlaceholder = '%scripts%'
@@ -29,6 +30,8 @@ config =
       main: wwwPath
       scripts: scriptsPath
       styles: stylesPath
+    config:
+      file: configFilePath
 
   folders:
     scripts:

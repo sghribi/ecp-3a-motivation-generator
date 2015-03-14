@@ -1,6 +1,5 @@
 node_modules/
 bower_components/
-coverage/
 www/
 npm-debug.log
-docs/build
+tools/build/config/config.json
