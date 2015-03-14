@@ -14,7 +14,7 @@ angular.module '%module%.common'
 
     $http
       method:   'GET'
-      url:       BASE_API_URL+'me'
+      url:       BASE_API_URL+'api/me'
       params:
         access_token: storage.accessToken
     .success (data, status, headers, config) ->
