@@ -9,6 +9,7 @@
 
 angular.module '%module%.landing', [
   'ng'
+  'ngResource'
   'ui.router'
   'pascalprecht.translate'
   'ui.bootstrap'
