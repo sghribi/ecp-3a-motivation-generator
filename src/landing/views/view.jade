@@ -1,20 +1,11 @@
-.jumbotron
-  .container
-    //h1 Générateur de lettres de motivation
-    p Générateur de lettres de motivation pour l'inscription aux options/filière de Centrale Paris
+.step1
+  h2 1 - Choisis ton modèle de lettre
+  .btn-group
+    label.btn.btn-success(ng-model="$parent.model", btn-radio="letter", ng-repeat="letter in letters", uncheckable) {{ letter.name }}
 
-    .row
-      form.form-horizontal(name="key")
-        .input-group
-          label(for="descryptKey") Les templates de lettres sont chiffrées
-          .input-group
-            .input-group-addon
-              i.glyphicon.glyphicon-lock
-            input.input-lg.form-control#decryptKey(type="text", placeholder="Clé de déchiffrage", ng-model="key")
-
-.container
-  .row
-    form(name="form")
+.step2(ng-show="model")
+  h2 2 - Rentre les champs requis
+  form(name="form")
     .col-sm-4
       h2 T ki lol ?
 
@@ -74,5 +65,7 @@
             button.btn.btn-default(type='button', ng-click='openDate($event)')
               i.glyphicon.glyphicon-calendar
 
+     .clearfix
+  h2 3 - Observe le résultat !
   pre
     letter

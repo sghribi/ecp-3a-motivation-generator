@@ -9,7 +9,11 @@ html(lang="fr", ng-app="%module%")
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
     meta(name="viewport", content="initial-scale=1.0, width:device-width")
   body
-    main(ui-view)
+    .container
+      .jumbotron
+        h3 Générateur de lettres de motivation pour l'inscription aux options/filière de Centrale Paris
+      .row
+        main(ui-view)
 
     script(src="%scripts%/vendor.js")
     script(src="%scripts%/app.js")

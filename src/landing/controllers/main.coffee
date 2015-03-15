@@ -2,6 +2,16 @@ angular.module '%module%.landing'
 .controller 'MainCtrl', ($scope) ->
 
   # Init
+  $scope.letters = [
+    {
+      id: 1
+      name: 'Modèle 1'
+    },
+    {
+      id: 2
+      name: 'Modèle 2'
+    },
+  ]
   $scope.date = new Date()
   $scope.originCursuses = [
     'Césure',
@@ -26,6 +36,7 @@ angular.module '%module%.landing'
     'Métiers de la Recherche'
     'Stratégie & Finance'
   ]
+
 
   # Key
   $scope.$watch 'key', ->
