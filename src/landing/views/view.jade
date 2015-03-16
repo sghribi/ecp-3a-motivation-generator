@@ -6,66 +6,15 @@
 .step2(ng-show="model")
   h2 2 - Rentre les champs requis
   form(name="form")
-    .col-sm-4
+    .col-xs-4
       h2 T ki lol ?
 
-      .form-group
-        label(for="firstName") Prénom
-        input.form-control#firstName(type="text", placeholder="Prénom", required="required", ng-model="firstName")
-      .form-group
-        label(for="lastName") Nom de famille
-        input.form-control#lastName(type="text", placeholder="Nom", required="required", ng-model="lastName")
-      .form-group
-        label(for="originCursus") Cursus avant l'entrée en 3A
-        select.form-control#option2(ng-model="originCursus", ng-options="originCursus as originCursus for originCursus in originCursuses", required="required")
+      .form-group(ng-repeat="field in model.fields")
+        label(for="field.name") {{ field.label }}
+        input.form-control#firstName(type="text", placeholder="{{ field.label }}", required="required", ng-model="$parent[field.name]", ng-model-options="{ getterSetter: true }")
 
-    .col-sm-4
-      h2 Tu veux faire koi lol ?
+    .col-xs-8
+      h2 Ta lettre
 
-      h3 Options
-      .form-group
-        label(for="option1") Choix 1
-        select.form-control#option1(ng-model="option1", ng-options="option as option for option in options", required="required")
-      .form-group
-        label(for="option2") Choix 2
-        select.form-control#option2(ng-model="option2", ng-options="option as option for option in options", required="required")
-      .form-group
-        label(for="option3") Choix 3
-        select.form-control#option3(ng-model="option3", ng-options="option as option for option in options", required="required")
-
-      h3 Filières
-      .form-group
-        label(for="filiere1") Choix 1
-        select.form-control#filiere1(ng-model="filiere1", ng-options="filiere as filiere for filiere in filieres", required="required")
-      .form-group
-        label(for="filiere2") Choix 2
-        select.form-control#filiere2(ng-model="filiere2", ng-options="filiere as filiere for filiere in filieres", required="required")
-      .form-group
-        label(for="filiere3") Choix 3
-        select.form-control#filiere3(ng-model="filiere3", ng-options="filiere as filiere for filiere in filieres", required="required")
-
-
-    .col-sm-4
-      h2 Ta lettre lol.
-
-      .form-group
-        label(for="place") Lieu sur la lettre
-        input.form-control#place(type="text", placeholder="Lieu", required="required", ng-model="place")
-      .form-group
-        label(for='date') Date sur la lettre
-        .input-group
-          input#date.form-control(
-            type='text'
-            datepicker-popup='DD/MM/YYYY'
-            ng-model='date'
-            is-open='opened'
-            ng-required='true'
-          )
-          span.input-group-btn
-            button.btn.btn-default(type='button', ng-click='openDate($event)')
-              i.glyphicon.glyphicon-calendar
-
-     .clearfix
-  h2 3 - Observe le résultat !
-  pre
-    letter(compile="model.text")
+      pre
+        letter(compile="model.text")
